@@ -2,18 +2,21 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    grid-auto-flow: row;
     align-items: center;
     justify-items: center;
-    /*align-content: center;*/
-    /*justify-content: center;*/
 }
 .main-skill-card{
     padding: 10px;
     background-color: #474747;
-    width: 100%;
-    max-width: 150px;
-    max-height: 280px;
+    /*width: 100%;*/
+    /*max-width: 150px;*/
+    /*max-height: 280px;*/
+    width: 150px;
+    height: 230px;
+
     display: flex;
     flex-flow: column nowrap;
     align-content: center;
@@ -43,4 +46,33 @@
     margin-left: auto;
     max-width: 260px;
     bottom: 0px;
+}
+.container{
+    content: "";
+    width: 95px;
+    height: 95px;
+}
+
+@media (max-width: 1200px) {
+    .main-block-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .main-block-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .main-block-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .main-block-grid {
+        grid-template-columns: 1fr;
+    }
 }
