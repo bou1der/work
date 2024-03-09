@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100..800&family=Itim&display=swap');
+html{
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #303030;
+    position: relative;
+}
+#root{
+    height: 100%;
+}
+header{
+    width: 100%;
+    height: auto;
+    z-index: 2;
+}
+.navigation-block{
+    font-family: itim;
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navigation-routes{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: 100%;
+    gap: 50px;
+}
+.navigation-routes a{
+    font-size: 30px;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #CBCAFF;
+}
+.navigation-title{
+
+}
+.navigation-title h1, .navigation-title h2{
+    margin: 0px;
+    padding: 0px;
+    text-align: right;
+    color: #CBCAFF;
+}
+.navigation-title h1{
+    font-size: 60px;
+    word-break: keep-all;
+}
+.navigation-title h2{
+    font-size: 40px;
+}
+.navigation-radio{
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 40px;
+    position: fixed;
+    height: 100%;
+    justify-content: center;
+    gap: 20px;
+    margin-left: 15px;
+}
+.navigation-radio img{
+    /*margin-left: 35px;*/
+}
+.main-info-block{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    max-height: 575px;
+    border-radius: 20px;
+    box-shadow: inset rgb(0,0,0,30%) 0px 0px 20px 11px ;
+    /*position: absolute;*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+@media screen and (width < 1140px) {
+    .navigation-block{
+        justify-content: center;
+        margin-bottom: 80px;
+        padding:0px;
+    }
+    .navigation-title h1,.navigation-title h2{
+        text-align: center;
+    }
+}
