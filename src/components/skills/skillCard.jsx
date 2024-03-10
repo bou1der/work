@@ -1,8 +1,9 @@
 import React from "react";
 import Canvas from "./canvas.js";
+import ModalWindow from "./modalWindow.jsx";
 
 import reactlogo from "./resource/react-2.svg";
-const Card = ({id}) =>{
+const Card = ({id, setModal,setModalInfo}) =>{
 
     React.useEffect(()=>{
         const canv = new Canvas(97,218,251,id)
@@ -10,7 +11,10 @@ const Card = ({id}) =>{
     },[])
 
     return (
-        <div className={"main-skill-card"}>
+        <div className={"main-skill-card"} onClick={ () => {
+            setModal(true)
+            setModalInfo({id,name:"React JS",logo:reactlogo,text:"test"})
+        }}>
             <img src={reactlogo} alt=""/>
             <div className={"separator"}></div>
             <canvas className={"GraphicCanvas"} id={`${id}`}></canvas>

@@ -82,10 +82,14 @@ header{
     max-height: 575px;
     border-radius: 20px;
     box-shadow: inset rgb(0,0,0,30%) 0px 0px 20px 11px ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     /*position: absolute;*/
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*margin-top: 40px;*/
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -98,4 +102,33 @@ header{
     .navigation-title h1,.navigation-title h2{
         text-align: center;
     }
+}
+@media screen and (width <  1440px) {
+    .main-info-block{
+        margin-top: 60px;
+    }
+    
+}
+@media screen and (width <  1220px) {
+    .main-info-block{
+        margin-top: 100px;
+    }
+
+}
+@media screen and (width <  1110px) {
+    .main-info-block{
+        margin-top: 240px;
+    }
+
+}
+@media screen and (width <  540px) {
+    .main-info-block{
+        margin-top: 340px;
+    }
+
+}@media screen and (width <  285px) {
+    .main-info-block{
+        margin-top: 430px;
+    }
+
 }

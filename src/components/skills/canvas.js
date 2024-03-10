@@ -1,8 +1,3 @@
-
-// console.log(canvas)
-// const canvasCTX = canvas.context
-
-
 class Canvas{
     ctx
     color;
