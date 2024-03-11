@@ -1,0 +1,62 @@
+.main-portfolio-block{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.portfolio-work-block{
+    width: 100%;
+    max-width: 1000px;
+    min-height: 400px;
+    background-color: #4B4B4B;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.main-img-work{
+    width: 580px;
+    height: 330px;
+    border-radius: 15px;
+}
+.portfolio-links{
+    height: 100%;
+    width: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.portfolio-links a {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: rgb(154, 154, 154, 0.25) 0px 0px 10px 0px;
+}
+.portfolio-link-github{
+    background-color: #C3C3C3;
+}
+.portfolio-link-figma{
+    background-color: #383838;
+}
+.portfolio-comments{
+    width: 100%;
+    max-width: 250px;
+    height: 100%;
+    max-height: 330px;
+    background-color: #333333;
+    border-radius: 20px;
+    box-shadow: rgb(0, 0, 0, 0.25) inset 0px 0px 10px 4px;
+}

@@ -13,7 +13,7 @@ const Card = ({id, setModal,setModalInfo}) =>{
     return (
         <div className={"main-skill-card"} onClick={ () => {
             setModal(true)
-            setModalInfo({id,name:"React JS",logo:reactlogo,text:"test"})
+            setModalInfo({id,name:"React JS",logo:reactlogo,text:"test",color:[97,218,251]})
         }}>
             <img src={reactlogo} alt=""/>
             <div className={"separator"}></div>

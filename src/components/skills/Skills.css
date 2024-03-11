@@ -55,17 +55,97 @@
 .main-modal-window-skill{
     width: 100%;
     max-width: 1360px;
-    height: 100%;
-    max-height: 650px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* height: 100%; */
+    min-height: 580px;
+    position: relative;
+    /* top: 10%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    margin-left: auto;
+    margin-right: auto;
+    /* left: 10%; */
+    /* right: 10%; */
     z-index: 5;
-    content: "";
-    background-color: red;
+    background-color: #444444;
+    border-radius: 20px;
+    box-shadow: #A9A7FF 0px 0px 23px 2px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    display: flex;
+    flex-flow: row wrap;
+    gap: 250px;
+    justify-content: center;
+    align-content: center;
+    font-family: Montserrat Alternates;
 }
-@media (max-width: 1200px) {
+.main-modal-window-skill button{
+    position: absolute;
+    padding: 0px;
+    right: 60px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(0, 0, 0,0);
+    border: none;
+    cursor: pointer;
+}
+.main-modal-window-skill button img{
+    width: 100%;
+    height: 100%;
+}
+.modal-window-logo{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: end;
+    position: relative;
+}
+.modal-logo-line{
+    display: inline;
+    content: '';
+    background-color: white;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    border-radius: 100px;
+}
+.modal-window-logo h1{
+    margin: 0px;
+    margin-bottom: -4.5px;
+    color: white;
+}
+.modal-window-logo img {
+    max-width: 180px;
+    margin-bottom: -20px;
+}
+.modal-window-preview{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    gap: 80px;
+}
+.modal-preview-works{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    width: 100%;
+}
+.modal-preview-works img{
+    width: 100%;
+}
+.modal-window-text{
+    color: white;
+    max-width: 600px;
+    text-align: right;
+    width: 100%;
+}
+.modal-window-text h1{
+    font-size: 46px;
+}
+.modal-window-text p{
+    font-size: 24px;
+}
+ @media (max-width: 1200px) {
     .main-block-grid {
         grid-template-columns: repeat(4, 1fr);
     }
