@@ -4,9 +4,13 @@ import emptyImg from "./resource/img.png"
 import closeModal from "./resource/close_modal.svg"
 
 const ModalWindow = ({setModal,modalInfo}) =>{
+    //style={{height:`${document.body.clientHeight}px`}
     return(
         <>
-                <div className={"main-modal-window-skill"}>
+            <div className={"modal-window-area"}>
+
+                <div className={"main-modal-window-skill"} style={{top:document.documentElement.clientWidth < 1200 ? `${window.scrollY}px` : "unset"}}>
+
                     <button onClick={() =>{setModal(false)}}><img src={closeModal} alt="" /></button>
                     <div className="modal-window-preview">
                         <span className="modal-window-logo">
@@ -28,6 +32,7 @@ const ModalWindow = ({setModal,modalInfo}) =>{
                         <p>Работа с Веб сокетами, socket.io, socket.io-client, а так же с состояниями mobX и мутацией компонентов в нем</p>
                     </div>
                 </div>
+            </div>
         </>
     )
 }

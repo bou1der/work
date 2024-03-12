@@ -10,9 +10,8 @@ const Skills = () =>{
     return(
         <>
             {modal && <ModalWindow setModal={setModal} modalInfo={modalInfo}/>}
-
             <div className={"main-info-block main-block-skills"}>
-                <div className={"main-block-grid"}>
+                <div className={"main-block-grid main-card-block"}>
                 {
                     arr.map(()=>{
                         return (

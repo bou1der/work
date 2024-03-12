@@ -9,14 +9,16 @@ import NavBar from "./pages/NavBar.jsx";
 function App() {
   return (
       <BrowserRouter>
+          <div style={{width:"100%",height:"100%",display:"flex",flexFlow:"column nowrap"}}>
           <NavBar/>
-          <Routes>
-          <Route path={'*'}  element={<Navigate to={'/'}/>}/>
-          <Route path={'/'} element={<Main/>}/>
-          <Route path={'/skills'} element={<Skills/>}/>
-          <Route path={'/portfolio'} element={<Portfolio/>}/>
-          <Route path={'/contacts'} element={<Contacts/>}/>
-        </Routes>
+              <Routes>
+                  <Route path={'*'}  element={<Navigate to={'/'}/>}/>
+                  <Route path={'/'} element={<Main/>}/>
+                  <Route path={'/skills'} element={<Skills/>}/>
+                  <Route path={'/portfolio'} element={<Portfolio/>}/>
+                  <Route path={'/contacts'} element={<Contacts/>}/>
+              </Routes>
+          </div>
       </BrowserRouter>
   )
 }

@@ -12,12 +12,15 @@
     min-height: 400px;
     background-color: #4B4B4B;
     border-radius: 20px;
+
     margin-left: auto;
     margin-right: auto;
     padding: 30px;
     padding-left: 40px;
     padding-right: 40px;
+
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     gap: 20px;
@@ -36,12 +39,15 @@
     align-items: center;
     gap: 10px;
 }
+.portfolio-links2{
+    height: 100%;
+}
 .portfolio-links a {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    height: 40%;
+    height: 100%;
     width: 100%;
     border-radius: 10px;
     box-shadow: rgb(154, 154, 154, 0.25) 0px 0px 10px 0px;
@@ -67,11 +73,13 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+    padding-top: 7px;
 }
 .portfolio-user-comment{
     margin-left: 10px;
     margin-right: 45px;
     margin-top: 5px;
+
 }
 .portfolio-user-comment h2{
     font-size: 16px;

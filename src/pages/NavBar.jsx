@@ -5,12 +5,6 @@ import {Link} from "react-router-dom";
 const NavBar = () =>{
     return(
         <>
-            <aside className={"navigation-radio"}>
-                <img src={radioDisable} alt=""/>
-                <img src={radioDisable} alt=""/>
-                <img src={radioDisable} alt=""/>
-                <img src={radioDisable} alt=""/>
-            </aside>
             <header>
                 <div className={'navigation-block'}>
                         <span className={'navigation-routes'}>
