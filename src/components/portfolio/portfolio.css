@@ -23,7 +23,8 @@
 
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, auto);
+    /*grid-template-columns: repeat(3, auto);*/
+    grid-template-columns: auto 0.1fr auto;
     align-items: center;
     justify-items: center;
 }
@@ -170,8 +171,43 @@
     padding: 40px;
     background-color: white;
     border-radius: 20px;
-    /*display: flex;*/
-    /*align-items: center;*/
+}
+.carousel-controllers{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.carousel-controllers img{
+    width: 20px;
+    height: 30px;
+    transition: filter 0.3s ease-in-out ;
+}
+.carousel-controllers span{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20px;
+    background-color: #303030;
+    border-radius: 20px;
+    align-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.carousel-controllers-separator {
+    content: "";
+    background-color: white;
+    height: 30px;
+    width: 1px;
+}
+.carousel-controllers button{
+    border: none;
+    background-color: rgb(0,0,0, 0%);
+    cursor: pointer;
+    padding: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.carousel-controllers button:hover img{
+    filter:invert(200%);
 }
 @media screen and (max-width: 920px) {
     .portfolio-work-block{

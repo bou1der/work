@@ -1,6 +1,8 @@
 import ImageFigma from "../components/portfolio/resource/figma.svg"
 import ImageGithub from "../components/portfolio/resource/github.svg"
 import ImageEmpty from "../components/portfolio/resource/img1.png"
+import prevCarousel from "../components/portfolio/resource/Vector-1.svg"
+import nextCarousel from "../components/portfolio/resource/Vector.svg"
 import "../components/portfolio/portfolio.css"
 
 const Portfolio = () =>{
@@ -225,6 +227,13 @@ const Portfolio = () =>{
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div className={"carousel-controllers"}>
+                           <span>
+                            <button><img src={prevCarousel} alt=""/></button>
+                               <div className={"carousel-controllers-separator"}></div>
+                            <button><img src={nextCarousel} alt=""/></button>
+                           </span>
                         </div>
                     </div>
             </div>
