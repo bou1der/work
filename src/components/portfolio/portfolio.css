@@ -21,7 +21,7 @@
     padding-bottom: 30px;
 
 
-    display: grid;
+    display: grid;q
     grid-template-rows: 1fr;
     /*grid-template-columns: repeat(3, auto);*/
     grid-template-columns: auto 0.1fr auto;
