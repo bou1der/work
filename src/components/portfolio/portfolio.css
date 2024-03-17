@@ -21,7 +21,7 @@
     padding-bottom: 30px;
 
 
-    display: grid;q
+    display: grid;
     grid-template-rows: 1fr;
     /*grid-template-columns: repeat(3, auto);*/
     grid-template-columns: auto 0.1fr auto;
@@ -160,7 +160,7 @@
     display: flex;
     justify-content: flex-start;
     gap: 50px;
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.15s ease-in-out;
 }
 .carousel-out{
     width: 100vw;
