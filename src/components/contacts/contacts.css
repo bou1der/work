@@ -1,0 +1,65 @@
+.flex-main-contacts{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+.main-map-block{
+    background-color: white;
+    border-radius: 20px;
+    content: "";
+    width: 100%;
+    height: 100vh;
+    max-height: 575px;
+    max-width: 1042px;
+}
+.main-contacts{
+    border-radius: 20px;
+    width:  245px;
+    height: 100vh;
+    max-height: 575px;
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+}
+.contact{
+    width: 100%;
+}
+.contact a{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+    text-decoration: none;
+    color: black;
+    font-family: Koulen;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 35px;
+}
+.contact p{
+    font-size: 24px;
+    margin: 0px;
+}
+.innerShadow{
+    box-shadow: inset rgb(48, 48, 48,0.4) 0px 0px 20px 11px;
+}
+@media screen and (max-width:400px) {
+    .main-contacts{
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width:800px) {
+    .flex-main-contacts{
+        flex-flow: column nowrap;
+    }
+    
+}

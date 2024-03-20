@@ -1,6 +1,11 @@
-const Contacts = () =>{
+import "../components/contacts/contacts.css"
+import Contacts from "../components/contacts/contactsPage.jsx"
+
+const ContactsPage = () =>{
     return(
-        <h1>Contacts Page</h1>
+        <>
+            <Contacts/>
+        </>
     )
 }
-export default Contacts
+export default ContactsPage
