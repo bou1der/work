@@ -16,6 +16,7 @@
     height: 100vh;
     max-height: 575px;
     max-width: 1042px;
+    overflow: hidden;
 }
 .main-contacts{
     border-radius: 20px;
