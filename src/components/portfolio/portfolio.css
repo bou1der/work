@@ -132,6 +132,9 @@
     overflow-y: scroll;
     scrollbar-width: none;
 }
+.comments::-webkit-scrollbar{
+    width: 0px;
+}
 .portfolio-comments-controls{
     display: flex;
     justify-content: center;
@@ -160,7 +163,7 @@
     display: flex;
     justify-content: flex-start;
     gap: 50px;
-    transition: transform 0.15s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 .carousel-out{
     width: 100vw;
@@ -171,6 +174,8 @@
     padding: 40px;
     background-color: white;
     border-radius: 20px;
+
+    box-shadow: inset rgb(30, 30, 30, 0.4) 0px 0px 20px 11px;
 }
 .carousel-controllers{
     display: flex;

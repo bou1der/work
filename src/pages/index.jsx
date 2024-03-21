@@ -1,7 +1,8 @@
+import MainInfo from "../components/main"
 
 const Main = ({}) =>{
     return(
-        <h1>Main page</h1>
+        <MainInfo/>
     )
 }
 

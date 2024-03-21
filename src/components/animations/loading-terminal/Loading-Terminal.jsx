@@ -2,6 +2,7 @@ import "./Loading-Terminal.css"
 import React from "react";
 import {v4 as uuidv4} from "uuid"
 const LoadingTerminal = () =>{
+    const [loading, setLoading] =React.useState(false)
     const [text, setText] = React.useState([
         "FORCE: XX0022. ENCYPT://000.222.2345",
         "TRYPASS: ********* AUTH CODE: ALPHA GAMMA: 1___ PRIORITY 1",
@@ -28,13 +29,27 @@ const LoadingTerminal = () =>{
     ]);
 
     React.useEffect(() => {
-        const timerId = setInterval(() => {
-            const updatedText = [...text];
-            updatedText.push(updatedText.shift());
-            setText(updatedText);
-        }, 400);
-        return () => clearInterval(timerId);
+        if(!loading){
+            const timerId = setInterval(() => {
+                const updatedText = [...text];
+                updatedText.push(updatedText.shift());
+                setText(updatedText);
+            }, 250);
+        }else{
+            setText([text])
+            const msg = document.querySelector('.msg')
+            msg.style.background = "green"
+            msg.style.boxShadow = "0 0 30px green"
+        }
+       
     }, [text]);
+    React.useEffect(()=>{
+        setTimeout(()=>{
+            setLoading(true)
+        },1500)
+    },[])
+
+
     return (
         <>
             <div className={"animation-scan-alert"}>
@@ -42,7 +57,7 @@ const LoadingTerminal = () =>{
                     <div className={'backgroud-window'}></div>
                     <div className="msg">Scanning</div>
                     {text.map((el) => {
-                        return (<p key={uuidv4()}>{el}</p>)
+                        return (<p className="console-p" key={uuidv4()}>{el}</p>)
                     })}
                 </div>
             </div>

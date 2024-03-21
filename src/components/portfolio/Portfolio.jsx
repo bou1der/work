@@ -12,7 +12,6 @@ const Portfolio = () =>{
     React.useEffect(()=>{
         animate = new Carousel()
     },[])
-    console.log("render")
     return(
         <>
             <div className={"main-info-block main-portfolio-block"}>

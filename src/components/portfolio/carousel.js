@@ -29,12 +29,9 @@ class Carousel{
         this.carousel.style.transform = 'translateX(0)';
         function ReloadCarousel(carousel,prevButton,nextButton,Prev,Next){
             setTimeout(()=>{
-                carousel.style.transition = 'transform 0.15s ease-in-out';
-            },150)
-            setTimeout(()=>{
-                prevButton.onclick = Prev;
-                nextButton.onclick = Next;
-            }, 150)
+                carousel.style.transition = 'transform 0.3s ease-in-out';
+            },5)
+
         }
 
         ReloadCarousel(this.carousel,this.prevButton,this.nextButton,this.Prev,this.Next)

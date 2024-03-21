@@ -107,12 +107,12 @@ header{
 
     width: 100%;
     max-width: 1300px;
-    /*padding-top: 30px;*/
-    /*padding-bottom: 30px;*/
-
 
     overflow-y: scroll;
     scrollbar-width: none;
+}
+.main-card-block::-webkit-scrollbar{
+    width: 0px;
 }
 @media (max-width: 1200px) {
     .main-info-block{

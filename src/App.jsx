@@ -15,7 +15,6 @@ function App() {
               <Routes>
                   <Route path={'*'}  element={<Navigate to={'/'}/>}/>
                   <Route path={'/'} element={<Main/>}/>
-                  <Route path={'/test'} element={<LoadingTerminal/>}/>
                   <Route path={'/skills'} element={<Skills/>}/>
                   <Route path={'/portfolio'} element={<PortfolioPage/>}/>
                   <Route path={'/contacts'} element={<ContactsPage/>}/>
