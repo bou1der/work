@@ -1,9 +1,9 @@
 {
     "port":8000,
     "db":{
-        "host":"",
-        "database":"",
-        "user":"",
+        "host":"localhost",
+        "database":"work",
+        "user":"root",
         "password":""
     }
 }

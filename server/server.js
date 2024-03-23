@@ -1,7 +1,10 @@
 const express = require('express')
-const testRout = require('./src/routes/test')
+const contacts = require('./src/routes/contacts')
 const app = express();
-
-app.use("/api/test/",testRout)
+const cors = require("cors")
+app.use(cors({
+    origin:"*"
+}))
+app.use("/api/contacts",contacts)
 
 module.exports = app;

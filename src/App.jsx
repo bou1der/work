@@ -5,7 +5,6 @@ import Skills from "./pages/Skills.jsx";
 import ContactsPage from "./pages/Contacts.jsx";
 import NavBar from "./pages/NavBar.jsx";
 import PortfolioPage from "./pages/Portfolio.jsx";
-import LoadingTerminal from "./components/animations/loading-terminal/Loading-Terminal.jsx";
 
 function App() {
   return (
