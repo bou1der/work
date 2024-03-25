@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 22 2024 г., 12:06
+-- Время создания: Мар 25 2024 г., 11:39
 -- Версия сервера: 8.0.24
--- Версия PHP: 8.0.8
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,26 +24,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `images`
+-- Структура таблицы `contacts`
 --
 
-CREATE TABLE `images` (
+CREATE TABLE `contacts` (
   `id` int NOT NULL,
-  `image_type` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `image` blob NOT NULL,
-  `image_size` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `image_ctgy` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `image_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+  `image_dir` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `contact_text` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
+  `connect_link` text COLLATE utf8mb4_general_ci NOT NULL,
+  `createdAt` text COLLATE utf8mb4_general_ci NOT NULL,
+  `updatedAt` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `image_dir`, `contact_text`, `connect_link`, `createdAt`, `updatedAt`) VALUES
+(1, './src/temp/contacts/whatsapp.svg', '+79775934510', '#', '', '');
 
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `images`
+-- Индексы таблицы `contacts`
 --
-ALTER TABLE `images`
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -51,10 +58,10 @@ ALTER TABLE `images`
 --
 
 --
--- AUTO_INCREMENT для таблицы `images`
+-- AUTO_INCREMENT для таблицы `contacts`
 --
-ALTER TABLE `images`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `contacts`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

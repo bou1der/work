@@ -19,6 +19,6 @@ const Contacts = SequelizeConnect.define('contacts',{
         type:DataTypes.TEXT,
         allowNull:false,
     }
-})
+}) 
 
 module.exports = Contacts

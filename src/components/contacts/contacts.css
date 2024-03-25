@@ -50,7 +50,7 @@
     margin: 0px;
 }
 .innerShadow{
-    box-shadow: inset rgb(48, 48, 48,0.4) 0px 0px 20px 11px;
+    box-shadow: inset rgb(48, 48, 48,0.4) 0px 0px 10px 1px;
 }
 @media screen and (max-width:400px) {
     .main-contacts{

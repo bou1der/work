@@ -14,7 +14,11 @@ const Card = ({id, setModal,setModalInfo}) =>{
         <div className={"main-skill-card"} onClick={ () => {
             setModal(true)
             setModalInfo({id,name:"React JS",logo:reactlogo,text:"test",color:[97,218,251]})
-        }}>
+        }}
+        style={{
+            background:`linear-gradient(135deg , rgb(${97},${218},${251}) 1% , #6100FF 75%)`
+        }}
+        >
             <img src={reactlogo} alt=""/>
             <div className={"separator"}></div>
             <canvas className={"GraphicCanvas"} id={`${id}`}></canvas>
