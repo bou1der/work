@@ -67,11 +67,13 @@
     margin-right: auto;
 
     z-index: 5;
-    background-color: #444444;
+    background-color: #ffffff;  
+
     border-radius: 20px;
     box-shadow: #A9A7FF 0px 0px 23px 2px;
-    padding-top: 70px;
-    padding-bottom: 70px;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
 
     display: flex;
     flex-flow: row wrap;
@@ -95,6 +97,7 @@
 .main-modal-window-skill button img{
     width: 100%;
     height: 100%;
+    filter: invert(200%);
 }
 .modal-window-logo{
     display: flex;
@@ -136,7 +139,7 @@
     width: 100%;
 }
 .modal-window-text{
-    color: white;
+    color: rgb(0, 0, 0);
     max-width: 600px;
     text-align: right;
     width: 100%;

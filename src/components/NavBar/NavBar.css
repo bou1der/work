@@ -25,6 +25,18 @@ body{
     );
     position: relative;
 }
+@media screen and (max-width: 530px) {
+    body{
+        background: conic-gradient(
+                from 0deg at 50% 65%,
+                #9D85FF 0%,
+                #FEECFF 37%,
+                #C5C3FF 53%,
+                #5400DD 80%,
+                #9D85FF 100%
+        );
+    }
+}
 #root{
     height: 100%;
 }

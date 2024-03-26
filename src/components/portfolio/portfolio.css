@@ -66,10 +66,10 @@
     max-width: 50px;
 }
 .portfolio-link-github{
-    background-color: #C3C3C3;
+    background-color: #D3E2FF;
 }
 .portfolio-link-figma{
-    background-color: #383838;
+    background-color: #C0BBFF;
 }
 .portfolio-comments{
     font-family: Montserrat Alternates;
@@ -166,7 +166,8 @@
 .carousel-out{
     width: 100vw;
     max-width: 1000px;
-    height: auto;
+    max-height: 515px;
+    height: 100%;
     overflow: hidden;
     position: relative;
     padding: 40px;
@@ -174,11 +175,14 @@
     border-radius: 20px;
 
     box-shadow: inset rgb(30, 30, 30, 0.4) 0px 0px 10px 6px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
 }
 .carousel-controllers{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
 }
 .carousel-controllers img{
     width: 20px;
@@ -189,11 +193,13 @@
     display: flex;
     flex-flow: row nowrap;
     gap: 20px;
-    background-color: #303030;
+    background-color: #B49EFF;
     border-radius: 20px;
     align-items: center;
     padding-right: 10px;
     padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .carousel-controllers-separator {
     content: "";
@@ -205,12 +211,21 @@
     border: none;
     background-color: rgb(0,0,0, 0%);
     cursor: pointer;
-    padding: 10px;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 20px;
 }
-.carousel-controllers button:hover img{
-    filter:invert(200%);
+.carousel-controllers button:hover {
+    /* filter:invert(200%); */
+    background-color: rgba(119, 119, 119, 0.404);
+    
 }
 @media screen and (max-width: 920px) {
     .portfolio-work-block{

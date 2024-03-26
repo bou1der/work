@@ -23,9 +23,9 @@ const Portfolio = () =>{
                     </div>
                     <div className={"carousel-controllers"}>
                            <span>
-                            <button><img id={"prev-button"} src={prevCarousel} onClick={() =>{animate.Prev()}} alt=""/></button>
-                               <div className={"carousel-controllers-separator"}></div>
-                            <button><img id={"next-button"} src={nextCarousel} onClick={() =>{animate.Next()}} alt=""/></button>
+                                <button className="prev-button"><img id={"prev-button"} src={prevCarousel} onClick={() =>{animate.Prev()}} alt=""/></button>
+                                <div className={"carousel-controllers-separator"}></div>
+                                <button className="next-button"><img id={"next-button"} src={nextCarousel} onClick={() =>{animate.Next()}} alt=""/></button>
                            </span>
                     </div>
                 </div>
