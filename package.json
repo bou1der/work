@@ -12,7 +12,10 @@
   "dependencies": {
     "@pbe/react-yandex-maps": "^1.2.5",
     "axios": "^1.6.8",
+    "Babel": "^0.0.1",
     "bootstrap": "^5.3.3",
+    "buffer": "^6.0.3",
+    "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",

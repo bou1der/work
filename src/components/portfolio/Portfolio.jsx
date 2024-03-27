@@ -1,25 +1,36 @@
 import prevCarousel from "./resource/Vector-1.svg";
 import nextCarousel from "./resource/Vector.svg";
+
+import React from "react";
 import Project from "./ProjectComponent.jsx";
 import Carousel from "./carousel.js"
 import {v4 as uuidv4} from "uuid"
-import React from "react";
+import {getData} from "../../services/axiosService.js"
 
 
 const Portfolio = () =>{
-    let animate;
-    const arr = [1,2,3,4,5,6,7]
+    const [portfolio,setPortfolio] = React.useState([])
+    const [error,setError] = React.useState({})
+    const [animate,setAnimate] = React.useState({})
+    // console.log(portfolio)
     React.useEffect(()=>{
-        animate = new Carousel()
+        setAnimate(new Carousel())
     },[])
+    React.useEffect(()=>{
+        getData("portfolio",setPortfolio,setError) 
+    },[])
+    // console.log(portfolio)
     return(
         <>
             <div className={"main-info-block main-portfolio-block"}>
                 <div className={"carousel-out"}>
                     <div className="carousel" onTransitionEnd={() => animate.carouselScrolling()}>
-                        {arr.map(() =>{
-                           return <Project key={uuidv4()}/>
-                        })}
+                        {portfolio &&
+                            portfolio.map((el) =>{
+                                // console.log(el.image)
+                            return <Project key={el.id} id={el.id} name={el.name} image={el.image} github={el.gitLink} figma={el.figmaLink} />
+                            })
+                        }
                     </div>
                     <div className={"carousel-controllers"}>
                            <span>

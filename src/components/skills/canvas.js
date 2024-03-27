@@ -19,7 +19,7 @@ class Canvas{
 
         ctx.beginPath()
         ctx.arc(153,82,49,0, Math.PI * 2,true)
-        ctx.strokeStyle = "rgb(141,141,141)"
+        ctx.strokeStyle = "rgb(255,255,255)"
 
         ctx.stroke()
     }

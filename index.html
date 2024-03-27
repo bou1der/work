@@ -9,6 +9,13 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>window.global = window</script>
+    <script type="module">
+      import {Buffer} from "buffer"
+      import process from "process"
+      window.Buffer = Buffer;
+      window.process = process;
+    </script>
   </body>
 
 </html>

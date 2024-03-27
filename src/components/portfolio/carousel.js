@@ -4,9 +4,9 @@ class Carousel{
     nextButton;
     prevButton;
     constructor() {
-        this.carousel = document.querySelector(".carousel")
         this.nextButton = document.getElementById("next-button")
         this.prevButton = document.getElementById("prev-button")
+        this.carousel = document.querySelector(".carousel")
     }
     Next(){
         this.direction = -1;

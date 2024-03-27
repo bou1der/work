@@ -7,6 +7,10 @@ const Portfolio = SequelizeConnect.define('portfolio',{
         allowNull:false,
         primaryKey:true
     },
+    name:{
+        type:DataTypes.CHAR,
+        allowNull:false
+    },
     github_link:{
         type:DataTypes.CHAR,
         allowNull:false,
@@ -18,10 +22,6 @@ const Portfolio = SequelizeConnect.define('portfolio',{
     image_dir:{
         type:DataTypes.CHAR,
         allowNull:false
-    },
-    comments_room:{
-        type:DataTypes.INTEGER,
-        allowNull:false,
     }
 }) 
 

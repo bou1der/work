@@ -5,4 +5,12 @@ const api = axios.create({
     baseURL:url
 })
 
-export default api
+export const getData = async (link,setData,setError) =>{
+    const res = await api.get(`/getContent/${link}`)
+    // console.log(res)
+    if(res.status !== 200){
+        setError({status:res.status,error:res.data.error})
+        return;
+    }
+    setData(res.data)
+}

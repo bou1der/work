@@ -1,0 +1,18 @@
+const express = require('express');
+const jsonParser = express.json()
+const router = express.Router();
+// controllers
+const content = require('../controllers/contentController');
+
+router.get('/contacts', jsonParser, (req,res)=>{
+    content.getContacts(req,res)
+})
+router.get('/portfolio', jsonParser, (req,res)=>{
+    content.getPortfolio(req,res)
+})
+router.get('/skills', jsonParser, (req,res)=>{
+    content.getSkills(req,res)
+})
+
+
+module.exports = router

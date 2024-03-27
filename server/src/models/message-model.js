@@ -16,7 +16,7 @@ const Message = SequelizeConnect.define('messages',{
         allowNull:true,
     },
     date_stamp:{
-        type:DataTypes.DATE,
+        type:DataTypes.DATE ,
         allowNull:false,
         defaultValue:DataTypes.NOW
     }

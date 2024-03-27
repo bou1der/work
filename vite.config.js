@@ -6,5 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server:{
     port:'3010'
+  },
+  resolve:{
+    alias:{
+      process:"process/browser"
+    }
   }
 })

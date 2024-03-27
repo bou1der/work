@@ -1,16 +1,29 @@
 import ImageEmpty from "./resource/img1.png";
 import ImageGithub from "./resource/github.svg";
 import ImageFigma from "./resource/figma.svg";
+import React from "react";
+import {Buffer} from "buffer";
 
-const Project = () =>{
+const Project = ({id,name,image,github,figma}) =>{
+    let imageSrc = "";
+    React.useEffect(()=>{
+        // const [image,setImage] = React.useState(getImage)
+        const imageData = Buffer.from(image)
+        const base64Image = imageData.toString('base64')
+        console.log(image.type)
+        imageSrc = `data:${image.type};base64,${base64Image}`
+    },[])
+    // console.log(imageSrc)
     return (
         <div className="portfolio-work-block ">
-            <img src={ImageEmpty} alt="" className="main-img-work"/>
+            <img src={imageSrc} alt="" className="main-img-work"/>
             <div className="portfolio-links">
-                <a className="portfolio-link-github" href="#" target="blank"><img src={ImageGithub}
-                                                                                  alt=""/></a>
-                <a className="portfolio-link-figma" href="#" target="blank"><img src={ImageFigma}
-                                                                                 alt=""/></a>
+                <a className="portfolio-link-github" href={`${github}`} target="blank">
+                    <img src={ImageGithub}alt=""/>
+                </a>
+                <a className="portfolio-link-figma" href={`${figma}`} target="blank">
+                    <img src={ImageFigma} alt=""/>
+                </a>
             </div>
             <div className="portfolio-comments">
                 <div className={"comments"}>

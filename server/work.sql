@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 26 2024 г., 13:47
+-- Время создания: Мар 27 2024 г., 15:56
 -- Версия сервера: 8.0.30
--- Версия PHP: 8.0.22
+-- Версия PHP: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,33 +20,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `work`
 --
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `chats`
---
-
-CREATE TABLE `chats` (
-  `id` int NOT NULL,
-  `name` varchar(25) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп данных таблицы `chats`
---
-
-INSERT INTO `chats` (`id`, `name`) VALUES
-(1, 'NEW.name'),
-(2, '######');
-
---
--- Триггеры `chats`
---
-DELIMITER $$
-CREATE TRIGGER `LINK_CHAT_ID` AFTER INSERT ON `chats` FOR EACH ROW UPDATE `portfolio` SET `chat_id` = 'NEW.id' WHERE portfolio.name = NEW.name
-$$
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -73,46 +46,44 @@ INSERT INTO `contacts` (`id`, `image_dir`, `contact_text`, `connect_link`, `crea
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `portfolio`
+-- Структура таблицы `messages`
 --
 
-CREATE TABLE `portfolio` (
+CREATE TABLE `messages` (
   `id` int NOT NULL,
-  `name` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `github_link` varchar(80) COLLATE utf8mb4_general_ci NOT NULL,
-  `figma_link` varchar(80) COLLATE utf8mb4_general_ci NOT NULL,
-  `image_dir` varchar(80) COLLATE utf8mb4_general_ci NOT NULL,
-  `chat_id` int DEFAULT NULL,
-  `createdAt` text COLLATE utf8mb4_general_ci NOT NULL,
-  `updatedAt` text COLLATE utf8mb4_general_ci NOT NULL
+  `toChat` int NOT NULL,
+  `text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `date_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `updatedAt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `portfolios`
+--
+
+CREATE TABLE `portfolios` (
+  `id` int NOT NULL,
+  `name` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `github_link` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `figma_link` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image_dir` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `createdAt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `updatedAt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Дамп данных таблицы `portfolio`
+-- Дамп данных таблицы `portfolios`
 --
 
-INSERT INTO `portfolio` (`id`, `name`, `github_link`, `figma_link`, `image_dir`, `chat_id`, `createdAt`, `updatedAt`) VALUES
-(1, '######', '12', '12', '12', NULL, '12', '12'),
-(3, '######', '123', '1241', '124123', NULL, '1234', '124');
-
---
--- Триггеры `portfolio`
---
-DELIMITER $$
-CREATE TRIGGER `create_chat_portfolio` AFTER INSERT ON `portfolio` FOR EACH ROW INSERT INTO chats (`name`)
-VALUES (NEW.name)
-$$
-DELIMITER ;
+INSERT INTO `portfolios` (`id`, `name`, `github_link`, `figma_link`, `image_dir`, `createdAt`, `updatedAt`) VALUES
+(3, 'resume', 'github.com', 'figma.com', './src/temp/portfolio/resume.png', '1234', '124');
 
 --
 -- Индексы сохранённых таблиц
 --
-
---
--- Индексы таблицы `chats`
---
-ALTER TABLE `chats`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `contacts`
@@ -121,20 +92,20 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `portfolio`
+-- Индексы таблицы `messages`
 --
-ALTER TABLE `portfolio`
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `portfolios`
+--
+ALTER TABLE `portfolios`
   ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
-
---
--- AUTO_INCREMENT для таблицы `chats`
---
-ALTER TABLE `chats`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `contacts`
@@ -143,9 +114,15 @@ ALTER TABLE `contacts`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT для таблицы `portfolio`
+-- AUTO_INCREMENT для таблицы `messages`
 --
-ALTER TABLE `portfolio`
+ALTER TABLE `messages`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `portfolios`
+--
+ALTER TABLE `portfolios`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
