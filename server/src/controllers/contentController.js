@@ -1,9 +1,10 @@
 const Portfolio = require("../models/portfolio-model")
 const Contacts = require("../models/contacts-model")
+const Skills = require("../models/skills-model")
 const fs = require('fs')
 module.exports.getContacts = async (req,res) =>{
     try{
-        let SendData = []
+        const SendData = []
         const MyContacts = await Contacts.findAll()
         MyContacts.map((contact)=>{
             const image = fs.readFileSync(`${contact.dataValues.image_dir}`)
@@ -19,10 +20,9 @@ module.exports.getContacts = async (req,res) =>{
 }
 module.exports.getPortfolio = async (req,res) =>{
     try{
-        let SendData = [];
+        const SendData = [];
         const works = await Portfolio.findAll() 
         works.map((el)=>{
-            console.log(el.dataValues.image_dir )
             const image = fs.readFileSync(el.dataValues.image_dir)
             SendData.push({
                 id:el.dataValues.id,
@@ -42,7 +42,20 @@ module.exports.getPortfolio = async (req,res) =>{
 }
 module.exports.getSkills = async (req,res) =>{
     try{
-
+        const SendData = [];
+        const skills = await Skills.findAll()
+        skills.map((skill)=>{
+            const image = fs.readFileSync(skill.dataValues.image_dir)
+            SendData.push({
+                id:skill.dataValues.id,
+                name:skill.dataValues.name,
+                image,
+                text:JSON.parse(skill.dataValues.text),
+                percent:skill.dataValues.percent,
+                rgb:JSON.parse(skill.dataValues.rgb)
+            })
+        })
+        res.status(200).json(SendData)
     }catch (err){
         res.status(500).json({
             error:err

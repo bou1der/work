@@ -4,7 +4,6 @@ import emptyImg from "./resource/img.png"
 import closeModal from "./resource/close_modal.svg"
 
 const ModalWindow = ({setModal,modalInfo}) =>{
-    //style={{height:`${document.body.clientHeight}px`}
     return(
         <>
             <div className={"modal-window-area"}>
@@ -16,7 +15,7 @@ const ModalWindow = ({setModal,modalInfo}) =>{
                         <span className="modal-window-logo">
                             <div className="modal-logo-line" style={{backgroundColor:`rgb(${modalInfo.color[0]},${modalInfo.color[1]},${modalInfo.color[2]})`}}></div>
                             <img src={modalInfo.logo} alt="" />
-                            <h1 style={{color:`rgb(${modalInfo.color[0]},${modalInfo.color[1]},${modalInfo.color[2]})`}}>{modalInfo.name}</h1>
+                            <h1 style={{color:`rgb(${modalInfo.color[0]},${modalInfo.color[1]},${modalInfo.color[2]})`}}>{`${modalInfo.name}`}</h1>
                         </span>
                         <div className="modal-preview-works">
                             <img src={emptyImg} alt="" />
@@ -25,12 +24,12 @@ const ModalWindow = ({setModal,modalInfo}) =>{
                     </div>
                     <div className="modal-window-text">
                         <h1>Опыт работы:</h1>
-                        <p>Опыт работы с хуками (useEffect,useMemo, useState,useCallback)</p>
-                        <p>Работа с роутером, props, компонентами,условным рендером</p>
-                        <p>Понимание VirtualDOM/DOM дерева, реактивности</p>
-                        <p>Запросы с клиента на backend, библиотека Axios, интерцепторы</p>
-                        <p>Работа с Веб сокетами, socket.io, socket.io-client, а так же с состояниями mobX и мутацией компонентов в нем</p>
-                    </div>
+                        {
+                            modalInfo.text.map((element)=>{
+                                return <p>{element}</p>
+                            })
+                        }
+                       </div>
                 </div>
             </div>
         </>

@@ -7,7 +7,7 @@ const api = axios.create({
 
 export const getData = async (link,setData,setError) =>{
     const res = await api.get(`/getContent/${link}`)
-    // console.log(res)
+    console.log(res)
     if(res.status !== 200){
         setError({status:res.status,error:res.data.error})
         return;

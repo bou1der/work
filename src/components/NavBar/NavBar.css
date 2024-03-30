@@ -9,31 +9,31 @@ html{
     }
 }
 body{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0px;
     padding: 0px;
     overflow-y: auto;
     overflow-x: hidden;
     background: conic-gradient(
             from 0deg at 50% 50%,
-            #9D85FF 0%,
+            #8b6eff 0%,
             #FEECFF 37%,
             #C5C3FF 53%,
             #5400DD 80%,
-            #9D85FF 100%
+            #8b6eff 100%
     );
     position: relative;
 }
 @media screen and (max-width: 530px) {
     body{
         background: conic-gradient(
-                from 0deg at 50% 65%,
-                #9D85FF 0%,
-                #FEECFF 37%,
-                #C5C3FF 53%,
-                #5400DD 80%,
-                #9D85FF 100%
+            from 0deg at 50% 85%,
+            #8b6eff 0%,
+            #FEECFF 37%,
+            #C5C3FF 53%,
+            #5400DD 80%,
+            #8b6eff 100%
         );
     }
 }
@@ -70,9 +70,6 @@ header{
     text-decoration: none;
     color: white;
 }
-.navigation-title{
-
-}
 .navigation-title h1, .navigation-title h2{
     margin: 0px;
     padding: 0px;
@@ -96,16 +93,11 @@ header{
     gap: 20px;
     margin-left: 15px;
 }
-.navigation-radio img{
-    /*margin-left: 35px;*/
-}
+
 .main-info-block{
 
     width: 100%;
     height: 80%;
-
-    /*position: absolute;*/
-    /*top: 0px;*/
 
     border-radius: 20px;
 
