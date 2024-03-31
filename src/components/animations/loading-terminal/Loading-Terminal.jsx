@@ -1,8 +1,8 @@
 import "./Loading-Terminal.css"
 import React from "react";
 import {v4 as uuidv4} from "uuid"
-const LoadingTerminal = () =>{
-    const [loading, setLoading] =React.useState(false)
+const LoadingTerminal = ({loading}) =>{
+    // const [loading, setLoading] =React.useState(false)
     const [text, setText] = React.useState([
         "FORCE: XX0022. ENCYPT://000.222.2345",
         "TRYPASS: ********* AUTH CODE: ALPHA GAMMA: 1___ PRIORITY 1",
@@ -34,7 +34,7 @@ const LoadingTerminal = () =>{
                 const updatedText = [...text];
                 updatedText.push(updatedText.shift());
                 setText(updatedText);
-            }, 250);
+            }, 500);
         }else{
             setText([text])
             const msg = document.querySelector('.msg')
@@ -43,13 +43,6 @@ const LoadingTerminal = () =>{
         }
        
     }, [text]);
-    React.useEffect(()=>{
-        setTimeout(()=>{
-            setLoading(true)
-        },1500)
-    },[])
-
-
     return (
         <>
             <div className={"animation-scan-alert"}>

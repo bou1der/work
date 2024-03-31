@@ -3,8 +3,9 @@
     height: 100%;
     max-height: 520px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 0.18fr);
     gap: 15px;
+    justify-content: center;
     grid-auto-flow: row;
     align-items: center;
     justify-items: center;

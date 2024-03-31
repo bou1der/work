@@ -4,6 +4,7 @@ import {v4 as uuidv4 } from "uuid"
 import ModalWindow from "../components/skills/modalWindow.jsx";
 import React from "react";
 import { getData } from "../services/axiosService.js";
+import LoadingSkills from "../components/animations/SkillsSkeleton.jsx";
 const Skills = () =>{
     const arr = [1,2,3,4,5,6,7,8,9,0]
 
@@ -12,23 +13,27 @@ const Skills = () =>{
 
     const [skills,setSkills] = React.useState([])
     const [error,setError] = React.useState({})
-
+    const [loading, setLoading] = React.useState(false)
     React.useEffect(()=>{
-        getData('skills',setSkills,setError)
+        getData('skills',setSkills,setError,setLoading)
     },[])
+
     return(
         <>
             {modal && <ModalWindow setModal={setModal} modalInfo={modalInfo}/>}
             <div className={"main-info-block main-block-skills"}>
                 <div className={"main-block-grid main-card-block"}>
-                {skills &&
+                {loading ?
                     skills.map((skill)=>{
                         return (
                             <>
+
                             <Card key={uuidv4()} id={uuidv4()} cardID={uuidv4()} skill={skill} setModal={setModal} setModalInfo={setModalInfo}/>
                             </>
                         );
                     })
+                    :
+                    <LoadingSkills/>
 
                 }
             </div>

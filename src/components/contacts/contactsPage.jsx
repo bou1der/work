@@ -1,14 +1,14 @@
-import mobile from "./resource/mobile.svg"
 import Contact from "./contactComponent.jsx"
 import {v4 as uuidv4} from "uuid"
 import {YMaps, Map, Placemark} from "@pbe/react-yandex-maps"
 import React from "react"
 import LoadingTerminal from "../animations/loading-terminal/Loading-Terminal.jsx"
-const Contacts = ({contacts}) =>{
-    const [loading,setLoading] = React.useState(false)
-    React.useEffect(()=>{
-        setTimeout(()=>{setLoading(true)},2500)
-    },[])
+import LoadingContacts from "../animations/LoadingContacts.jsx";
+const Contacts = ({contacts,loading}) =>{
+
+    // React.useEffect(()=>{
+    //     setTimeout(()=>{setLoading(true)},1000)
+    // },[])
     return(
         <>
             <div className="main-info-block main-contact">
@@ -22,15 +22,20 @@ const Contacts = ({contacts}) =>{
                                 </Map>
                                 </YMaps> 
                                 :
-                                <LoadingTerminal />
+                                <LoadingTerminal loading={loading} />
                                 
                         }
                     </div>
                     <div className="main-contacts innerShadow">
-                        {
+                        {loading ?
                             contacts.map((contact) =>{
-                            return <Contact key={uuidv4()} image={contact.image} link={contact.link} text={contact.text}/>
-                        })}
+                                return <Contact key={uuidv4()} image={contact.image} link={contact.link} text={contact.text}/>
+                            })
+                            :
+                            <LoadingContacts many={6}/>
+
+                        }
+                        <LoadingContacts />
                     </div>
                 </div>
             </div>

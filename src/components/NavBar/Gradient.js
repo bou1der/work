@@ -16,4 +16,4 @@ class GradientHandler{
         },100)
     }
 }
-export default new GradientHandler
+export default GradientHandler

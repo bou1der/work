@@ -24,9 +24,9 @@ body{
             #8b6eff 100%
     );
     position: relative;
-    transition: background 1s ease-in-out;
 
-    animation: spinGradient 1s linear 0s infinite normal;
+    /*transition: background 1s ease-in-out;*/
+    /*animation: spinGradient 1s linear 0s infinite normal;*/
 }
 @keyframes spinGradient {
     0%{
