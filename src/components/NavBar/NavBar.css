@@ -24,6 +24,30 @@ body{
             #8b6eff 100%
     );
     position: relative;
+    transition: background 1s ease-in-out;
+
+    animation: spinGradient 1s linear 0s infinite normal;
+}
+@keyframes spinGradient {
+    0%{
+        background: conic-gradient(
+                from 0deg at 50% 50%,
+                #8b6eff 0%,
+                #FEECFF 37%,
+                #C5C3FF 53%,
+                #5400DD 80%,
+                #8b6eff 100%
+        );
+    }50%{
+             background: conic-gradient(
+                     from 360deg at 50% 50%,
+                     #8b6eff 0%,
+                     #FEECFF 37%,
+                     #C5C3FF 53%,
+                     #5400DD 80%,
+                     #8b6eff 100%
+             )
+         }
 }
 @media screen and (max-width: 530px) {
     body{

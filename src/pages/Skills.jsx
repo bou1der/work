@@ -25,10 +25,11 @@ const Skills = () =>{
                     skills.map((skill)=>{
                         return (
                             <>
-                            <Card key={uuidv4()} id={uuidv4()} skill={skill} setModal={setModal} setModalInfo={setModalInfo}/>
+                            <Card key={uuidv4()} id={uuidv4()} cardID={uuidv4()} skill={skill} setModal={setModal} setModalInfo={setModalInfo}/>
                             </>
                         );
                     })
+
                 }
             </div>
         </div>

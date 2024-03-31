@@ -1,8 +1,12 @@
 import "../components/NavBar/NavBar.css"
-// import radioEnable from "../components/NavBar/resource/radio-enable.svg"
-// import radioDisable from "../components/NavBar/resource/radio-disable.svg"
 import {Link} from "react-router-dom";
+// import GradientHandel from "../components/NavBar/Gradient.js";
+import React from "react";
 const NavBar = () =>{
+    React.useEffect(()=>{
+        // GradientHandel.Animate()
+    },[])
+
     return(
         <>
             <header>
