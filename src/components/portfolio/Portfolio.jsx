@@ -6,17 +6,19 @@ import Project from "./ProjectComponent.jsx";
 import Carousel from "./carousel.js"
 import {v4 as uuidv4} from "uuid"
 import {getData} from "../../services/axiosService.js"
+import LoadingPortfolio from "../animations/LoadingPortfolio.jsx";
 
 
 const Portfolio = () =>{
     const [portfolio,setPortfolio] = React.useState([])
     const [error,setError] = React.useState({})
     const [animate,setAnimate] = React.useState({})
+    const [loading,setLoading] = React.useState(false)
     React.useEffect(()=>{
         setAnimate(new Carousel())
     },[])
     React.useEffect(()=>{
-        getData("portfolio",setPortfolio,setError) 
+        getData("portfolio",setPortfolio,setError,setLoading) 
 
     },[])
     return(
@@ -24,10 +26,12 @@ const Portfolio = () =>{
             <div className={"main-info-block main-portfolio-block"}>
                 <div className={"carousel-out"}>
                     <div className="carousel" onTransitionEnd={() => animate.carouselScrolling()}>
-                        {portfolio &&
+                        {loading ?
                             portfolio.map((el) =>{
                             return <Project key={el.id} id={el.id} name={el.name} image={el.image} github={el.gitLink} figma={el.figmaLink} />
                             })
+                            :
+                            <LoadingPortfolio/>
                         }
                     </div>
                     <div className={"carousel-controllers"}>

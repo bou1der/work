@@ -4,7 +4,6 @@ import "react-loading-skeleton/dist/skeleton.css"
 const LoadingContacts = ({many}) =>{
     const arr = []
     for (let i = 0;i < many;i++){
-        console.log("aaaaaaaaaaa")
         arr.push(i)
     }
     return(

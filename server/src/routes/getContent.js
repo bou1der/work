@@ -13,6 +13,8 @@ router.get('/portfolio', jsonParser, (req,res)=>{
 router.get('/skills', jsonParser, (req,res)=>{
     content.getSkills(req,res)
 })
-
+router.post('/adminLogin',jsonParser,(req,res)=>{
+    content.adminLogin(req,res)
+})
 
 module.exports = router

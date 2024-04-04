@@ -63,3 +63,14 @@ module.exports.getSkills = async (req,res) =>{
         console.log(err)
     }
 }
+module.exports.adminLogin = async (req,res) =>{
+    try{
+   
+        res.status(200).json({password:"1234"})
+    }catch (err){
+        res.status(500).json({
+            error:err
+        })
+        console.log(err)
+    }
+}

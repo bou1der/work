@@ -17,7 +17,6 @@ const Skills = () =>{
     React.useEffect(()=>{
         getData('skills',setSkills,setError,setLoading)
     },[])
-
     return(
         <>
             {modal && <ModalWindow setModal={setModal} modalInfo={modalInfo}/>}

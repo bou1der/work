@@ -1,8 +1,32 @@
+import React from "react"
+import {api} from "../../services/axiosService"
 import "./admin.css"
+import Panel from "./panel.jsx";
+
+async function login(password,setPass){
+    const login = await api.post('/getContent/adminLogin',{password})
+    setPass('')
+}
+
 const Admin = ({})=>{
+    const [pass,setPass] = React.useState('')
+    
+    React.useEffect(()=>{
+      
+    },[])
     return(
         <>
-            <h1>Да админка тут будет, и чо?</h1>
+            {
+                !localStorage.getItem('Authorization') ?
+                <>
+                    <input type="text" onInput={e =>{setPass(e.target.value)}} value={pass} />
+                    <button onClick={()=>{
+                        login(pass,setPass)
+                    }}>Войти</button>
+                </> 
+                : 
+                <Panel/>
+            }
         </>
     )
 }

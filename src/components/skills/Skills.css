@@ -29,6 +29,7 @@
     align-items: center;
     gap: 7px;
     position: relative;
+    transition: transform 0.15s linear;
 }
 .separator{
     content: "";
