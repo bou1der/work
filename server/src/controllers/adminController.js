@@ -23,11 +23,3 @@ module.exports.createContact = async (req,res,next) =>{
         console.log(e)
     }
 }
-module.exports.loginAdmin = async (req,res,next) =>{
-    try{
-        
-    }catch(e){
-        res.status(500).json({error:`${e}`})
-        console.log(e)
-    }
-}

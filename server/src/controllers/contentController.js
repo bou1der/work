@@ -1,6 +1,7 @@
 const Portfolio = require("../models/portfolio-model")
 const Contacts = require("../models/contacts-model")
 const Skills = require("../models/skills-model")
+const bcrypt = require("bcrypt")
 const fs = require('fs')
 module.exports.getContacts = async (req,res) =>{
     try{
@@ -65,8 +66,12 @@ module.exports.getSkills = async (req,res) =>{
 }
 module.exports.adminLogin = async (req,res) =>{
     try{
-   
-        res.status(200).json({password:"1234"})
+        const password = req.body.password
+        if(!bcrypt.compareSync(password,process.env.PASSWORD)){
+            return(res.status(403).json({message:'неверный пароль'}))
+        }
+        
+        res.status(200).json({password})
     }catch (err){
         res.status(500).json({
             error:err
