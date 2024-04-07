@@ -1,0 +1,159 @@
+.admin-panel{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-form{
+    position: relative;
+    .button-exit-admin{
+        color: red;
+        font-size: 20px;
+        //position: absolute;
+        //right: 30px;
+        //top: 10px;
+        border: none;
+        background-color: rgb(1,2,3,0%);
+        padding: 15px;
+    }
+    .route-admin{
+        width: 160px;
+        height: 50px;
+        margin-left: 1%;
+        background-color: rgba(255, 255, 255, 0);
+        cursor: pointer;
+        border: 2px rgb(128, 128, 128) solid;
+        border-radius: 10px;
+        transition: {
+            property: background-color;
+            duration: 1s;
+        }
+    }
+    .route-admin:hover{
+        background-color: rgb(128, 128, 128);
+    }
+}
+.admin-panel-controlls{
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    max-width: 1300px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: inset rgb(0,0,0,30%) 0px 0px 10px 6px;
+
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    display: flex;
+    flex-flow: column nowrap;
+}
+.admin-create-form{
+    padding-left: 13px;
+    padding-right: 13px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.main-info-create{
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 10px;
+    gap: 20px;
+    .input-file{
+        width: 160px;
+        height: 160px;
+    }
+}
+.head-content{
+    display: flex;
+    flex-flow: column;
+    gap: 15px;
+
+    h1{
+        font-size: 40px;
+        font-weight: 500;
+        padding: 0px;
+        margin: 0px;
+    }
+    h3{
+        margin: 0px;
+        padding: 0px;
+        font-size: 24px;
+    }
+    input{
+        width: 100%;
+        max-width: 250px;
+        height: 30px;
+        padding: 0px;
+    }
+}
+.plusButton{
+    background-color: #8b6eff;
+    //position: absolute;
+    width: 30px;
+    height: 30px;
+    right: -10px;
+}
+.textBlock{
+    //width: 100%;
+    position: relative;
+    height: 200px;
+    background-color: #C0C0C0;
+    padding:{
+        bottom: 10px;
+        top: 10px;
+        left: 20px;
+        right: 20px;
+    }
+    border-radius: 15px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+
+    span{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        p{
+            max-width: 260px;
+        }
+        button{
+            padding: 0px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 7px;
+            &:hover{
+                background-color: white;
+            }
+        }
+    }
+}
+.final-create-content{
+    span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        input{
+            width: 60px;
+            height: 40px;
+        }
+        p{
+            font-size: 20PX;
+        }
+    }
+    button{
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
+    }
+}

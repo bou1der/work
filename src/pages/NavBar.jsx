@@ -2,10 +2,11 @@ import "../components/NavBar/NavBar.css"
 import {Link} from "react-router-dom";
 import React from "react";
 import GradientHandler from "../components/NavBar/Gradient";
+
 const NavBar = () =>{
     React.useEffect(()=>{
         const Gradient = new GradientHandler()
-        Gradient.Animate() 
+        // Gradient.Animate()
     },[])
     return(
         <>

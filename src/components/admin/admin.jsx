@@ -1,6 +1,6 @@
 import React from "react"
 import {api} from "../../services/axiosService"
-import "./admin.css"
+import "./admin.scss"
 import Panel from "./panel.jsx";
 
 async function login(password,setPass){
@@ -19,7 +19,7 @@ const Admin = ({})=>{
             {
                 !localStorage.getItem('Authorization') ?
                 <>
-                    <input type="text" onInput={e =>{setPass(e.target.value)}} value={pass} />
+                    <input type="password" onInput={e =>{setPass(e.target.value)}} value={pass} />
                     <button onClick={()=>{
                         login(pass,setPass)
                     }}>Войти</button>

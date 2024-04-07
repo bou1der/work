@@ -14,7 +14,7 @@ api.interceptors.request.use((config) =>{
 })
 api.interceptors.response.use((config)=>{
     if (config.request.responseURL ===  url + '/getContent/adminLogin'){
-        config.status === 200 ? localStorage.setItem('Authorization',config.data.password) : console.log("error") ;
+        config.status === 200 && localStorage.setItem('Authorization',config.data.password);
     }
     return config;
 },()=>{
