@@ -5,7 +5,8 @@ const Portfolio = SequelizeConnect.define('portfolio',{
     id:{
         type:DataTypes.INTEGER,
         allowNull:false,
-        primaryKey:true
+        primaryKey:true,
+        autoIncrement:true
     },
     name:{
         type:DataTypes.CHAR,

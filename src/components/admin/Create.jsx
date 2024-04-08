@@ -1,21 +1,43 @@
 import React from "react";
 import minus from "./resource/minus-svgrepo-com 1.svg"
+import {api} from "../../services/axiosService.js";
 
 const SkillCreate = () =>{
-    const [inputValues, setInputValues] = React.useState({
-        value1: '',
-        value2: ''
-    });
-
-    const handleInputChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-
+    const [image,setImage] = React.useState(null)
+    const [inputValues,setInputValues] = React.useState({
+        name:'',
+        percent:0,
+        r:0,
+        g:0,
+        b:0
+    })
+    const handleInputChange = (name,value)=>{
         setInputValues(prevState => ({
             ...prevState,
-            [name]: value
-        }));
+            [name]:value
+        }))
     }
+    const handleSendData = async () =>{
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('name', inputValues.name);
+        formData.append('percent', inputValues.percent);
+        formData.append('r', inputValues.r);
+        formData.append('g', inputValues.g);
+        formData.append('b', inputValues.b);
+        console.log(formData)
+        try {
+            const res = await api.post('admin/create/skills', formData ,{
+                headers:{
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            console.log(res)
+        }catch (e) {
+            console.log(e)
+        }
+    }
+
     console.log(inputValues)
     return(
         <>
@@ -24,9 +46,9 @@ const SkillCreate = () =>{
                     <div className={"head-content"}>
                         <h1>Skills</h1>
                         <h3>Name</h3>
-                        <input type="text" name="value1" value={inputValues.value1} onInput={handleInputChange}/>
+                        <input type="text" name="name" value={inputValues.name} onInput={(el) =>handleInputChange(el.target.name,el.target.value)}/>
                     </div>
-                    <input className={"input-file"} type="file" name="" id=""/>
+                    <input className={"input-file"} type="file" name="file" onChange={(el) =>{setImage(el.target.files[0])}} id=""/>
                 </div>
                 <button className={"plusButton"}>+</button>
                 <div className={"textBlock"}>
@@ -39,14 +61,34 @@ const SkillCreate = () =>{
                 <div className={"final-create-content"}>
                 <span className={"form-control-color"}>
                     <p>R</p>
-                    <input id={"R"} type="number" min={0} max={255}/>
+                    <input id={"R"} type="number" name={"r"} min={0} max={255} onChange={(el) =>{
+                        setInputValues(prevState => ({
+                            ...prevState,
+                            [el.target.name]:el.target.value
+                        }))
+                    }}/>
                     <p>G</p>
-                    <input id={"G"} type="number" min={0} max={255}/>
+                    <input id={"G"} type="number" name='g' min={0} max={255} onChange={(el) =>{
+                        setInputValues(prevState => ({
+                            ...prevState,
+                            [el.target.name]:el.target.value
+                        }))
+                    }}/>
                     <p>B</p>
-                    <input id={"B"} type="number" min={0} max={255}/>
+                    <input id={"B"} type="number" name='b' min={0} max={255} onChange={(el) =>{
+                        setInputValues(prevState => ({
+                            ...prevState,
+                            [el.target.name]:el.target.value
+                        }))
+                    }}/>
                 </span>
-                    <div>Percent <input type="number" min={0} max={100}/></div>
-                    <button>Создать</button>
+                    <div>Percent <input type="number" name='percent' min={0} max={100} onChange={(el) =>{
+                        setInputValues(prevState => ({
+                            ...prevState,
+                            [el.target.name]:el.target.value
+                        }))
+                    }}/></div>
+                    <button onClick={() => handleSendData()}>Создать</button>
 
                 </div>
             </div>

@@ -5,7 +5,8 @@ const Message = SequelizeConnect.define('messages',{
     id:{
         type:DataTypes.INTEGER,
         allowNull:false,
-        primaryKey:true
+        primaryKey:true,
+        autoIncrement:true
     },
     toChat:{
         type:DataTypes.INTEGER,

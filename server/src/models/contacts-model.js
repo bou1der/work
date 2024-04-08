@@ -5,7 +5,8 @@ const Contacts = SequelizeConnect.define('contacts',{
     id:{
         type:DataTypes.INTEGER,
         allowNull:false,
-        primaryKey:true
+        primaryKey:true,
+        autoIncrement:true
     },
     image_dir:{
         type:DataTypes.CHAR,
