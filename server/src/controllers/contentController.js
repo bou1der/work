@@ -9,7 +9,7 @@ module.exports.getContacts = async (req,res) =>{
         const MyContacts = await Contacts.findAll()
         MyContacts.map((contact)=>{
             const image = fs.readFileSync(`${contact.dataValues.image_dir}`)
-            SendData.push({id:contact.dataValues.id, image:`${image}` ,text:contact.dataValues.contact_text,link:contact.dataValues.connect_link})
+            SendData.push({id:contact.dataValues.id, image ,text:contact.dataValues.contact_text,link:contact.dataValues.connect_link})
         })
         res.status(200).json(SendData)
     }catch (err){

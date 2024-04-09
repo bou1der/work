@@ -38,7 +38,6 @@ const SkillCreate = () =>{
         }
     }
 
-    console.log(inputValues)
     return(
         <>
             <div style={{display: "flex", flexFlow: "column nowrap", width: "100%", maxWidth: "500px"}}>
@@ -96,6 +95,27 @@ const SkillCreate = () =>{
     )
 }
 const ContactCreate = () => {
+    const [image,setImage] = React.useState(null)
+    const [inputValues,setInputValues] = React.useState({
+        name:'',
+        link:'',
+    })
+    const handleSendData = async () =>{
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('name', inputValues.name);
+        formData.append('link', inputValues.link);
+        try {
+            const res = await api.post('admin/create/contacts', formData ,{
+                headers:{
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            console.log(res)
+        }catch (e) {
+            console.log(e)
+        }
+    }
     return (
         <>
             <div style={{display: "flex", flexFlow: "column nowrap", width: "100%", maxWidth: "500px"}}>
@@ -103,23 +123,55 @@ const ContactCreate = () => {
                     <div className={"head-content"}>
                         <h1>Contacts</h1>
                         <h3>Contact text</h3>
-                        <input type="text" name="" id=""/>
+                        <input type="text" name="name" id="" onChange={(el) =>{
+                            setInputValues(prevState => ({
+                                ...prevState,
+                                [el.target.name]:el.target.value
+                            }))
+                    }}/>
                     </div>
-                    <input className={"input-file"} type="file" name="" id=""/>
+                    <input className={"input-file"} type="file" name="file" id="" onChange={(el) =>{setImage(el.target.files[0])}}/>
                 </div>
                 <div className={"contact-link"}>
                     <h3>Link</h3>
-                    <input type="text" name="" id=""/>
+                    <input type="text" name="link" id="" onChange={(el) =>{
+                        setInputValues(prevState => ({
+                            ...prevState,
+                            [el.target.name]:el.target.value
+                        }))
+                    }}/>
                 </div>
                 <div className={"final-create-content"}>
-                    <button>Создать</button>
+                    <button onClick={()=>handleSendData()}>Создать</button>
                 </div>
             </div>
         </>
     )
 }
 const PortfolioCreate = () => {
-    const [portfolioData,setPortfolioData] = React.useState([])
+    const [image,setImage] = React.useState(null)
+    const [inputValues,setInputValues] = React.useState({
+        name:'',
+        figma:'',
+        github:''
+    })
+    const handleSendData = async () =>{
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('name', inputValues.name);
+        formData.append('figma', inputValues.figma);
+        formData.append('github', inputValues.github);
+        try {
+            const res = await api.post('admin/create/portfolio', formData ,{
+                headers:{
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            console.log(res)
+        }catch (e) {
+            console.log(e)
+        }
+    }
     return (
         <>
             <div style={{display: "flex", flexFlow: "column nowrap", width: "100%", maxWidth: "500px"}}>
@@ -127,18 +179,33 @@ const PortfolioCreate = () => {
                     <div className={"head-content"}>
                         <h1>Portfolio</h1>
                         <h3>Name</h3>
-                        <input  type="text" name="" id=""/>
+                        <input  type="text" name="name" id="" onChange={(el) =>{
+                            setInputValues(prevState => ({
+                                ...prevState,
+                                [el.target.name]:el.target.value
+                            }))
+                        }}/>
                     </div>
-                    <input className={"input-file"} type="file" name="" id=""/>
+                    <input className={"input-file"} type="file" name="file" id="" onChange={(el) =>{setImage(el.target.files[0])}}/>
                 </div>
                 <div className={"contact-link"}>
                     <h3>Github Link</h3>
-                    <input type="text"/>
+                    <input type="text" name="github" onChange={(el) =>{
+                        setInputValues(prevState => ({
+                            ...prevState,
+                            [el.target.name]:el.target.value
+                        }))
+                    }}/>
                     <h3>Figma link</h3>
-                    <input type="text"/>
+                    <input type="text" name="figma" onChange={(el) =>{
+                        setInputValues(prevState => ({
+                            ...prevState,
+                            [el.target.name]:el.target.value
+                        }))
+                    }}/>
                 </div>
                 <div className={"final-create-content"}>
-                    <button>Создать</button>
+                    <button onClick={()=>handleSendData()}>Создать</button>
                 </div>
             </div>
         </>

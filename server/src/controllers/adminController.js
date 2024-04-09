@@ -17,6 +17,12 @@ module.exports.createSkill = async (req,res) =>{
 }
 module.exports.createPortfolio = async (req,res) =>{
     try{
+        const {name,github,figma} = req.body
+        const data = await Portfolio.create({name,image_dir:req.file.path,figma_link:figma,github_link:github})
+        if (!data){
+            return res.status(500).json(data)
+        }
+
         res.status(200).json({admin:true})
     }catch (e){
         res.status(500).json({error:`${e}`})
@@ -25,6 +31,11 @@ module.exports.createPortfolio = async (req,res) =>{
 }
 module.exports.createContact = async (req,res) =>{
     try{
+        const {name,link} = req.body
+        const data = await Contact.create({contact_text:name,image_dir:req.file.path,connect_link:link})
+        if (!data){
+            return res.status(500).json(data)
+        }
 
         res.status(200).json({admin:true})
     }catch (e){

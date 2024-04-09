@@ -6,9 +6,6 @@ import LoadingTerminal from "../animations/loading-terminal/Loading-Terminal.jsx
 import LoadingContacts from "../animations/LoadingContacts.jsx";
 const Contacts = ({contacts,loading}) =>{
 
-    // React.useEffect(()=>{
-    //     setTimeout(()=>{setLoading(true)},1000)
-    // },[])
     return(
         <>
             <div className="main-info-block main-contact">
@@ -35,7 +32,6 @@ const Contacts = ({contacts,loading}) =>{
                             <LoadingContacts many={6}/>
 
                         }
-                        <LoadingContacts />
                     </div>
                 </div>
             </div>
