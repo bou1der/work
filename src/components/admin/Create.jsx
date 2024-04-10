@@ -1,6 +1,6 @@
 import React from "react";
-import minus from "./resource/minus-svgrepo-com 1.svg"
 import {api} from "../../services/axiosService.js";
+import TextList from "./textList.jsx";
 
 const SkillCreate = () =>{
     const [image,setImage] = React.useState(null)
@@ -11,6 +11,8 @@ const SkillCreate = () =>{
         g:0,
         b:0
     })
+    const [textList,setTextList] = React.useState([])
+    const [textTemp,setTextTemp] = React.useState('')
     const handleInputChange = (name,value)=>{
         setInputValues(prevState => ({
             ...prevState,
@@ -25,6 +27,7 @@ const SkillCreate = () =>{
         formData.append('r', inputValues.r);
         formData.append('g', inputValues.g);
         formData.append('b', inputValues.b);
+        formData.append('text',textList)
         console.log(formData)
         try {
             const res = await api.post('admin/create/skills', formData ,{
@@ -37,7 +40,13 @@ const SkillCreate = () =>{
             console.log(e)
         }
     }
-
+    const deleteText = (text) =>{
+        const arr = []
+        textList.map(el =>{
+            el != text ? arr.push(el) : false;
+        })
+        setTextList(arr)
+    }
     return(
         <>
             <div style={{display: "flex", flexFlow: "column nowrap", width: "100%", maxWidth: "500px"}}>
@@ -49,12 +58,18 @@ const SkillCreate = () =>{
                     </div>
                     <input className={"input-file"} type="file" name="file" onChange={(el) =>{setImage(el.target.files[0])}} id=""/>
                 </div>
-                <button className={"plusButton"}>+</button>
+                <button className={"plusButton"} onClick={()=>{
+                    setTextList([...textList,textTemp])
+                    setTextTemp('')
+                }}>+</button>
+                <input type="text" value={textTemp} onChange={(el) =>{setTextTemp(el.target.value)}} />
                 <div className={"textBlock"}>
-                    <span><p>Lorem ipsum dolor sit.</p><button><img src={minus} alt=""/></button></span>
-                    <span><p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, sapiente.</p><button><img src={minus} alt=""/></button></span>
-                    <span><p>Lorem ipsum dolor sit.</p><button><img src={minus} alt=""/></button></span>
-                    <span><p>Lorem ipsum dolor sit.</p><button><img src={minus} alt=""/></button></span>
+                   {
+                    textList &&
+                        textList.map((el) =>{
+                                return <TextList text={el} deleteText={deleteText}/>
+                        })
+                   }
                 </div>
 
                 <div className={"final-create-content"}>
