@@ -10,12 +10,14 @@ class Carousel{
     }
     Next(){
         this.direction = -1;
-        this.carousel.style.transform = "translateX("+ (-1040) + "px)";
+        const  project = document.querySelector(".portfolio-work-block")
+        this.carousel.style.transform = "translateX("+ -project.clientWidth + "px)";
         // this.nextButton.onclick = null;
     }
     Prev(){
         this.direction = 1;
-        this.carousel.style.transform = "translateX("+ 1040 + "px)";
+        const  project = document.querySelector(".portfolio-work-block")
+        this.carousel.style.transform = "translateX("+ project.clientWidth + "px)";
         // this.prevButton.onclick = null;
     }
     carouselScrolling(){

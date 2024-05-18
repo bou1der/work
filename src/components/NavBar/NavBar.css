@@ -71,7 +71,8 @@ header{
     position: relative;
 }
 .navigation-block{
-    font-family: itim;
+    font-family: Montserrat Alternates;
+    font-weight: 600;
     display: flex;
     flex-flow: wrap;
     align-content: center;
@@ -166,6 +167,7 @@ header{
         justify-content: center;
         margin-bottom: 80px;
         padding:0px;
+
     }
     .navigation-title h1,.navigation-title h2{
         text-align: center;

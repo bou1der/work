@@ -64,10 +64,6 @@
     max-width: 1360px;
     min-height: 580px;
     position: absolute;
-    /*left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
-    margin-left: auto;
-    margin-right: auto;
 
     z-index: 5;
     background-color: #ffffff;  
@@ -79,10 +75,9 @@
     padding-bottom: 40px;
 
     display: flex;
-    flex-flow: row wrap;
-    gap: 250px;
+    flex-flow: column nowrap;
     justify-content: center;
-    align-content: center;
+    /*align-content: center;*/
     font-family: Montserrat Alternates;
 }
 
@@ -96,6 +91,13 @@
     background-color: rgb(0, 0, 0,0);
     border: none;
     cursor: pointer;
+    z-index: 5;
+}
+@media screen and (max-width: 700px) {
+    .main-modal-window-skill button{
+        right: 30px;
+
+    }
 }
 .main-modal-window-skill button img{
     width: 100%;
@@ -107,9 +109,12 @@
     flex-flow: row nowrap;
     align-items: end;
     position: relative;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .modal-logo-line{
     display: inline;
+    max-width: 400px;
     content: '';
     background-color: white;
     width: 100%;
@@ -124,7 +129,7 @@
 }
 .modal-window-logo img {
     max-width: 180px;
-    margin-bottom: -20px;
+    /*margin-bottom: -20px;*/
 }
 .modal-window-preview{
     display: flex;
@@ -143,9 +148,11 @@
 }
 .modal-window-text{
     color: rgb(0, 0, 0);
-    max-width: 600px;
+    /*max-width: 600px;*/
     text-align: right;
-    width: 100%;
+    /*width: 100%;*/
+    padding-right: 5%;
+    padding-left: 5%;
 }
 .modal-window-text h1{
     font-size: 46px;

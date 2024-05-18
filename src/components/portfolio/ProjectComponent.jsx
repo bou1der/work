@@ -1,17 +1,32 @@
-import ImageEmpty from "./resource/img1.png";
 import ImageGithub from "./resource/github.svg";
 import ImageFigma from "./resource/figma.svg";
 import React from "react";
 import {Buffer} from "buffer";
+import {v4} from "uuid"
+import {api, getData} from "../../services/axiosService.js";
+import CommentBlock from "./comment.jsx";
 
 const Project = ({id,name,image,github,figma}) =>{
     const [imageSrc,setImageSrc] = React.useState('')
+    const [inputArea,setInputArea] = React.useState('')
+    const [comments,setComments] = React.useState([])
+    const [error,setError] = React.useState([])
+    const [loadingState,setLoadinState] = React.useState([])
 
     React.useEffect(()=>{
         const imageData = Buffer.from(image)
         const base64Image = imageData.toString('base64')
         setImageSrc(`data:${image.type};base64,${base64Image}`)
+        getData('comments',setComments,setError,setLoadinState,{id},"post")
     },[])
+    const SendMessageHandle = async () =>{
+        const res = await api.post("/getContent/writeComment",{id,text:inputArea})
+        if (res.status === 200){
+            setComments([{id:v4(),text:inputArea,date:new Date()},...comments])
+            setInputArea("")
+        }
+    }
+    console.log(comments)
     return (
         <div className="portfolio-work-block ">
             <img src={imageSrc} alt="" className="main-img-work"/>
@@ -25,29 +40,17 @@ const Project = ({id,name,image,github,figma}) =>{
             </div>
             <div className="portfolio-comments">
                 <div className={"comments"}>
-                    <div className={"portfolio-user-comment"}>
-                        <span><h2>Anonymous</h2><small>DATE_STAMP</small></span>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, culpa
-                            cumque
-                            doloremque eaque enim error eveniet facere, ipsa nam nostrum numquam
-                            optio quam
-                            quia
-                            rem repudiandae sed tempora. Cum deserunt mollitia nam nulla pariatur
-                            voluptates.
-                        </p>
-                    </div>
+                    {
+                        loadingState &&
+                            comments.map(el=>{
 
-                    <div className={"portfolio-user-comment"}>
-                        <span><h2>Anonymous</h2><small>DATE_STAMP</small></span>
-                        <p>
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
+                                return <CommentBlock key={el.id} id={el.id} text={el.text} date={el.date}/>
+                            })
+                    }
                 </div>
                 <div className={"portfolio-comments-controls"}>
-                    <input type="text"/>
-                    <button>Send</button>
+                    <input style={{color:"white"}} type="text" value={inputArea} onInput={(el)=>{setInputArea(el.target.value)}}/>
+                    <button onClick={SendMessageHandle}>Send</button>
                 </div>
             </div>
         </div>

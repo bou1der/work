@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize')
+    const Sequelize = require('sequelize')
 const config = require('../../config.json')
 
 const SequelizeConnect = new Sequelize(`${config.db.database}`, `${config.db.user}` , `${config.db.password}`, {

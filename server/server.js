@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt')
 
 
 app.use(cors({
-    origin:["http://localhost:3010"],
+    origin:["http://localhost:3000"],
     credentials:true,
     allowedHeaders:["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"]
 }))

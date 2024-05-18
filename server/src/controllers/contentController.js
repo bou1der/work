@@ -1,6 +1,7 @@
 const Portfolio = require("../models/portfolio-model")
 const Contacts = require("../models/contacts-model")
 const Skills = require("../models/skills-model")
+const Comments = require("../models/message-model")
 const bcrypt = require("bcrypt")
 const fs = require('fs')
 module.exports.getContacts = async (req,res) =>{
@@ -73,6 +74,43 @@ module.exports.adminLogin = async (req,res) =>{
         
         res.status(200).json({password})
     }catch (err){
+        res.status(500).json({
+            error:err
+        })
+        console.log(err)
+    }
+}
+module.exports.comments = async (req,res) =>{
+    try{
+        const {id} = req.body
+        const sendData = []
+        if (!id){
+            return res.status(300).json({error:"Пустой id"})
+        }
+        const comments  = await Comments.findAll({where:{toChat:id}})
+        comments.map(el=>{
+            sendData.push({id:el.dataValues.id,text:el.dataValues.text,date:el.dataValues.date_stamp})
+        })
+        res.status(200).json(sendData.reverse())
+    }catch (err) {
+        res.status(500).json({
+            error:err
+        })
+        console.log(err)
+    }
+}
+module.exports.writeComments = async (req,res) =>{
+    try{
+        const {id,text} = req.body
+        if (!id || !text){
+            return res.status(300).json({error:"Пустые данные"})
+        }
+        const comment = await Comments.create({toChat:id,text:text})
+        if (!comment){
+            return res.status(400).json({error:"Непредвиденная ошибка"})
+        }
+        res.status(200).json({test:"da"})
+    }catch (err) {
         res.status(500).json({
             error:err
         })
